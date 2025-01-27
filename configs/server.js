@@ -1,0 +1,42 @@
+"use strict";
+
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
+import { dbConection } from "./mongo.js";
+
+const configMiddlewares = (app)=>{
+    app.use(express.urlencoded({extended: false}))
+    app.use(cors())
+    app.use(express.json())
+    app.use(helmet())
+    app.use(morgan('dev'))
+}
+
+const configRoute = ()=>{
+
+}
+
+const conectDB = async()=>{
+    try {
+        await dbConection();
+        console.log("La conexión con la base de datos ha sido exitosa")
+    } catch (err) {
+        console.log("Error intentando conectar con la Base de Datos")
+        process.exit(1)        
+    }
+}
+
+export const initServer = async()=>{
+    const app = express();
+    const Port = process.env.PORT||3000;
+
+    await conectDB();
+    configMiddlewares(app);
+    configRoute(app);
+
+    app.listen(Port, ()=>{
+        console.log(`Server running on port ${Port}`)
+    })
+}
