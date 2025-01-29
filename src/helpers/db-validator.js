@@ -13,7 +13,7 @@ export const rolValido = async (role = '') =>{
 export const correoExiste = async (correo = '') =>{
     const correoExist = await User.findOne({correo})
     
-    if(!correoExist){
+    if(correoExist){
         throw new Error (`El correo ${correo} ya está en uso`)
     }
 }

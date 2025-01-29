@@ -13,7 +13,6 @@ export const login = async (req, res) =>{
                 msg: 'Credenciales incorrectas, Correo no existe en la base de datos'
             });
         }
- 
         if (!usuario.estado) {
             return res.status(400).json({
                 msg: 'El usuario no existe en la base de datos'
@@ -50,7 +49,7 @@ export const register = async (req, res) => {
     const salt = bcryptjs.genSaltSync();
     user.password = bcryptjs.hashSync(password, salt);
  
-    await user.seve();
+    await user.save();
  
     res.status(200).json({
         user,
