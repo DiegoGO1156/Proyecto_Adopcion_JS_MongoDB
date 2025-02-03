@@ -8,7 +8,7 @@ import { dbConection } from "./mongo.js";
 import limiter from "../src/middlewares/validar-cant-peticiones.js"
 import authRoutes from "../src/auth/auth.routes.js"
 
-const configMiddlewares = (app)=>{
+const middlewares = (app)=>{
     app.use(express.urlencoded({extended: false}))
     app.use(cors())
     app.use(express.json())
@@ -17,10 +17,8 @@ const configMiddlewares = (app)=>{
     app.use(limiter)
 }
 
-const configRoute = (app)=>{
-    const usuarioPath = "/proyecto_adopcion/v1/auth"
-
-    app.use(usuarioPath, authRoutes)
+const routes = (app)=>{
+    app.use("/proyecto_adopcion/v1/auth", authRoutes)
 }
 
 const conectDB = async()=>{
@@ -37,11 +35,21 @@ export const initServer = async()=>{
     const app = express();
     const Port = process.env.PORT||3000;
 
+    try {
+        middlewares(app);
+        conectDB()
+        routes(app);
+        app.listen(Port)
+        console.log(`server init in port ${Port}`)     
+    } catch (err) {
+        console.log(`Server falied intit ${err}`)
+    }
+    /*
     await conectDB();
     configMiddlewares(app);
     configRoute(app);
 
     app.listen(Port, ()=>{
         console.log(`Server running on port ${Port}`)
-    })
+    }*/
 }

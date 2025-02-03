@@ -1,57 +1,88 @@
-import bcryptjs from 'bcryptjs'
+import { hash, verify } from 'argon2';
 import Usuario from '../users/user.model.js'
 import { generarJWT } from '../helpers/generate-jwt.js'
  
 export const login = async (req, res) =>{
-    const {correo, password} = req.body;
+    const {email, password, username} = req.body;
  
     try {
-        const usuario = await Usuario.findOne({correo});
+        const lowerEmail = email ? email.toLoweCase() : null;
+        const lowerUsername = username ? username.toLoweCase() : null;
+
+        const user = await user.findOne({
+            $or: [{email: lowerEmail}, {username: lowerUsername}]
+        })
+
  
-        if (!usuario) {
+        if (!user) {
             return res.status(400).json({
                 msg: 'Credenciales incorrectas, Correo no existe en la base de datos'
             });
         }
-        if (!usuario.estado) {
+        if (!user.state) {
             return res.status(400).json({
-                msg: 'El usuario no existe en la base de datos'
+                msg: 'El user no existe en la base de datos'
             });
         }
- 
-        const validPassword = bcryptjs.compareSync(password, usuario.password);
+        console.log("Hola")
+        const validPassword = await verify(user.password, password);
         if (!validPassword) {
             return res.status(400).json({
                 msg: "La contraseña es incorrecta"
             })
         }
  
-        const token = await generarJWT(usuario.id);
+        const token = await generarJWT(user.id);
  
         res.status(200).json({
-            msg: "Login OK!!!!",
-            usuario,
+            msg: "Inicio de sesión exitoso!!!",
+            userDetails: {
+                username: user.name,
+                token: token,
+                profilePicture: user.profilePicture    
+            },
             token
         })
  
     } catch (e) {
         console.log(e);
         res.status(500).json({
-            msg: 'Comuniquese con el administrador'
+            msg: "Server error",
+            error: e.message
         });
     }
 }
  
 export const register = async (req, res) => {
-    const { nombre, correo, password, role , phone} = req.body;
-    const user = new Usuario({ nombre, correo, password, role , phone });
- 
-    const salt = bcryptjs.genSaltSync();
-    user.password = bcryptjs.hashSync(password, salt);
- 
-    await user.save();
- 
-    res.status(200).json({
-        user,
-    });
+    try {
+        const data = req.body
+        let profilePicture = req.file ? req.file.filename : null;
+
+        const passwordEncrypt = await hash (data.password)
+
+        const user = await Usuario.create({
+            name: data.name,
+            surname: data.surname,
+            username: data.username,
+            email: data.email,
+            phone: data.phone,
+            password: data.password,
+            role: data.role,
+            profilePicture
+        })
+
+        return res.status(200).json({
+            message: "Registro hecho con exito",
+            userDetails: {
+                user: user.email
+            }
+        })
+
+    } catch (e) {
+        console.log(e)
+        return res.status(500).json({
+            msg: "User registration falied",
+            error: e.message
+        })
+    }
 }
