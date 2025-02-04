@@ -6,10 +6,10 @@ export const login = async (req, res) =>{
     const {email, password, username} = req.body;
  
     try {
-        const lowerEmail = email ? email.toLoweCase() : null;
-        const lowerUsername = username ? username.toLoweCase() : null;
+        const lowerEmail = email ? email.toLowerCase() : null;
+        const lowerUsername = username ? username.toLowerCase() : null;
 
-        const user = await user.findOne({
+        const user = await Usuario.findOne({
             $or: [{email: lowerEmail}, {username: lowerUsername}]
         })
 
@@ -24,14 +24,13 @@ export const login = async (req, res) =>{
                 msg: 'El user no existe en la base de datos'
             });
         }
-        console.log("Hola")
         const validPassword = await verify(user.password, password);
         if (!validPassword) {
             return res.status(400).json({
                 msg: "La contraseña es incorrecta"
             })
         }
- 
+        console.log("Hola")
         const token = await generarJWT(user.id);
  
         res.status(200).json({
@@ -66,7 +65,7 @@ export const register = async (req, res) => {
             username: data.username,
             email: data.email,
             phone: data.phone,
-            password: data.password,
+            password: passwordEncrypt,
             role: data.role,
             profilePicture
         })
