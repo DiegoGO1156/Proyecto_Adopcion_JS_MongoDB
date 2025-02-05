@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 
-import User from "../users/user.model"
+import User from "../users/user.model.js"
 
 //req es una petición, un resp es una respuesta
 export const valueJWT = async (req, resp, next)=>{
