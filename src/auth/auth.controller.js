@@ -1,5 +1,5 @@
 import { hash, verify } from 'argon2';
-import Usuario from '../users/user.model.js'
+import User from '../users/user.model.js'
 import { generarJWT } from '../helpers/generate-jwt.js'
  
 export const login = async (req, res) =>{
@@ -9,7 +9,7 @@ export const login = async (req, res) =>{
         const lowerEmail = email ? email.toLowerCase() : null;
         const lowerUsername = username ? username.toLowerCase() : null;
 
-        const user = await Usuario.findOne({
+        const user = await User.findOne({
             $or: [{email: lowerEmail}, {username: lowerUsername}]
         })
 
@@ -39,8 +39,7 @@ export const login = async (req, res) =>{
                 username: user.name,
                 token: token,
                 profilePicture: user.profilePicture    
-            },
-            token
+            }
         })
  
     } catch (e) {
@@ -59,7 +58,7 @@ export const register = async (req, res) => {
 
         const passwordEncrypt = await hash (data.password)
 
-        const user = await Usuario.create({
+        const user = await User.create({
             name: data.name,
             surname: data.surname,
             username: data.username,

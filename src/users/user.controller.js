@@ -77,6 +77,26 @@ export const updateUser = async(req, res = response) =>{
     }
 }
 
+export const updatePassword = async(req, res) =>{
+    try {
+        const {id} = req.params
+        const {_id, username, email, ...data} = req.body
+        const passwordEncrypt = await hash (data.password)
+        const user = await Usuario.findByIdAndUpdate(id, data, {new: true})   
+        res.status(200).json({
+            success: true, 
+            msg: "Contraseña actualizada con exito",
+            user
+        })
+
+    } catch (e) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al actualizar Contraseña"
+        })
+    }
+}
+
 export const deleteUser = async(req,res) =>{
     try {
         const {id} = req.params
