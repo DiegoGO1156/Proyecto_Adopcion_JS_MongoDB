@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "67ab5875e3a462d20314cb88"
+  },
+  "name": "ElpoJhon",
+  "description": "Muy jugueton y muy comelon",
+  "age": 3,
+  "type": "Gran Danes",
+  "keeper": {
+    "$oid": "67ab51d3d471a77ee4ed2ba8"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-11T14:02:29.035Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-11T14:02:29.035Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ab5908e3a462d20314cb90"
+  },
+  "name": "Maximo segundo",
+  "description": "Tranquilo y comelon",
+  "age": 5,
+  "type": "Pastor Aleman",
+  "keeper": {
+    "$oid": "67ab514cd471a77ee4ed2ba0"
+  },
+  "status": false,
+  "createdAt": {
+    "$date": "2025-02-11T14:04:56.032Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-11T14:36:53.841Z"
+  }
+}]

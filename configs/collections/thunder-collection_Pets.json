@@ -1,0 +1,96 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Pets",
+    "collectionId": "211434fc-6cff-4b0c-a233-4b37b4383efa",
+    "dateExported": "2025-02-11T15:08:22.705Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8384a928-eebc-424e-8eef-ccd15e4fb820",
+            "colId": "211434fc-6cff-4b0c-a233-4b37b4383efa",
+            "containerId": "",
+            "name": "Save pet",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/pet/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-02-11T13:59:16.549Z",
+            "modified": "2025-02-11T14:04:56.046Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FiNTE0Y2Q0NzFhNzdlZTRlZDJiYTAiLCJpYXQiOjE3MzkyODI2MjYsImV4cCI6MTczOTI4NjIyNn0.uCNKES0ZWXwI4PTmRNlXunSt3Aq5HrpxGh7f9HBKxwo"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Max\",\n  \"description\": \"Tranquilo y cariñoso\",\n  \"type\": \"Paston Aleman\",\n  \"age\": \"4\",\n  \"email\": \"dgarcia@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "035c7ab7-44cc-44c7-95f8-e4b1ee595505",
+            "colId": "211434fc-6cff-4b0c-a233-4b37b4383efa",
+            "containerId": "",
+            "name": "Get all pets",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/pet/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-02-11T14:03:02.868Z",
+            "modified": "2025-02-11T14:06:16.950Z",
+            "headers": []
+        },
+        {
+            "_id": "08fd5679-cd87-41df-b1d8-04635091bcf9",
+            "colId": "211434fc-6cff-4b0c-a233-4b37b4383efa",
+            "containerId": "",
+            "name": "Get pet by ID",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/pet/67ab5908e3a462d20314cb90",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2025-02-11T14:05:26.652Z",
+            "modified": "2025-02-11T14:09:55.957Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FiNTE0Y2Q0NzFhNzdlZTRlZDJiYTAiLCJpYXQiOjE3MzkyODI2MjYsImV4cCI6MTczOTI4NjIyNn0.uCNKES0ZWXwI4PTmRNlXunSt3Aq5HrpxGh7f9HBKxwo"
+                }
+            ]
+        },
+        {
+            "_id": "2b8d5d2c-0333-4b85-a778-cc98ecf823d2",
+            "colId": "211434fc-6cff-4b0c-a233-4b37b4383efa",
+            "containerId": "",
+            "name": "Update Pet",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/pet/67ab5908e3a462d20314cb90",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2025-02-11T14:12:44.051Z",
+            "modified": "2025-02-11T14:35:46.444Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Maximo segundo\",\n  \"description\": \"Tranquilo y comelon\",\n  \"type\": \"Pastor Aleman\",\n  \"age\": \"5\",\n  \"email\": \"dgarcia@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d416f4ad-085b-4cca-823b-133d4879a889",
+            "colId": "211434fc-6cff-4b0c-a233-4b37b4383efa",
+            "containerId": "",
+            "name": "Delete pet",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/pet/67ab5908e3a462d20314cb90",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2025-02-11T14:36:06.947Z",
+            "modified": "2025-02-11T14:36:53.849Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FiNTE0Y2Q0NzFhNzdlZTRlZDJiYTAiLCJpYXQiOjE3MzkyODI2MjYsImV4cCI6MTczOTI4NjIyNn0.uCNKES0ZWXwI4PTmRNlXunSt3Aq5HrpxGh7f9HBKxwo"
+                }
+            ]
+        }
+    ],
+    "ref": "xprrYS_Guk43Pb52urRt_FalVo4XX0GMZ94mZ_RxKdDuwjsjhOY5mcguPNWdVbJcL4e0o6AFbv6ZWhjHeWJqjQ"
+}

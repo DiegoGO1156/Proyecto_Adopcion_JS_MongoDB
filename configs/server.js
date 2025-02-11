@@ -9,6 +9,7 @@ import limiter from "../src/middlewares/validar-cant-peticiones.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/users/user.routes.js";
 import petRoutes from "../src/pet/petRoutes.js";
+import appointmentRoutes from "../src/appointment/appointmentRoutes.js";
 
 
 const middlewares = (app)=>{
@@ -24,6 +25,7 @@ const routes = (app)=>{
     app.use("/proyecto_adopcion/v1/auth", authRoutes)
     app.use("/proyecto_adopcion/v1/user", userRoutes)
     app.use("/proyecto_adopcion/v1/pet", petRoutes)
+    app.use("/proyecto_adopcion/v1/cita", appointmentRoutes)
 }
 
 const conectDB = async()=>{

@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Auth",
+    "collectionId": "1cbd44d0-d81f-47f9-b5ee-4eacf2a413c8",
+    "dateExported": "2025-02-11T15:07:56.346Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "ec9f353c-3b4b-45e3-967c-c3174126bd7c",
+            "colId": "1cbd44d0-d81f-47f9-b5ee-4eacf2a413c8",
+            "containerId": "",
+            "name": "Register User",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-02-11T13:27:57.398Z",
+            "modified": "2025-02-11T13:34:11.450Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Giovanni\",\n  \"surname\": \"Carrera\",\n  \"username\": \"gcarrera\",\n  \"email\": \"gcarrera@gmail.com\",\n  \"phone\": \"12345678\",\n  \"password\": \"hola1234\",\n  \"role\": \"USER_ROLE\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "9b7cb767-af9d-4d80-9e6c-68106dccd995",
+            "colId": "1cbd44d0-d81f-47f9-b5ee-4eacf2a413c8",
+            "containerId": "",
+            "name": "Login User",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-11T13:38:17.442Z",
+            "modified": "2025-02-11T14:03:46.281Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"dgarcia@gmail.com\",\n  \"password\": \"12345678\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "H44nIkrR-sI80KoWeuzHfeZAhESca0aP4aYF-Hy0RQ7-C-L3D5tUo6o6IoXhz50yaT1VkQRALq-HRtb4OffZew"
+}

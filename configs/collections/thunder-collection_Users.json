@@ -1,0 +1,69 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Users",
+    "collectionId": "b37a624f-0314-4a1f-ada5-13caadbeaaf3",
+    "dateExported": "2025-02-11T15:08:16.226Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e90dfe0b-db18-4a4e-8e02-6ea32dd1263b",
+            "colId": "b37a624f-0314-4a1f-ada5-13caadbeaaf3",
+            "containerId": "",
+            "name": "Get all users",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/user/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-02-11T13:48:59.659Z",
+            "modified": "2025-02-11T13:49:20.380Z",
+            "headers": []
+        },
+        {
+            "_id": "565415f6-89b2-417d-b852-b94c9874fb2c",
+            "colId": "b37a624f-0314-4a1f-ada5-13caadbeaaf3",
+            "containerId": "",
+            "name": "Get user by ID",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/user/findUser/67ab51abd471a77ee4ed2ba4",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-02-11T13:50:05.883Z",
+            "modified": "2025-02-11T13:50:37.384Z",
+            "headers": []
+        },
+        {
+            "_id": "27d39215-9b2e-4a49-ad2f-f552b43095ea",
+            "colId": "b37a624f-0314-4a1f-ada5-13caadbeaaf3",
+            "containerId": "",
+            "name": "Update User",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/user/67ab51d3d471a77ee4ed2ba8",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-02-11T13:51:20.611Z",
+            "modified": "2025-02-11T13:53:47.657Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Emmanuel\",\n  \"surname\": \"Carrera\",\n  \"username\": \"gcarrera\",\n  \"email\": \"gcarrera@gmail.com\",\n  \"phone\": \"12345678\",\n  \"password\": \"yosoycarreragarrido\",\n  \"role\": \"USER_ROLE\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "62c9ecfe-a4df-4ec0-871c-a474605c6992",
+            "colId": "b37a624f-0314-4a1f-ada5-13caadbeaaf3",
+            "containerId": "",
+            "name": "Delete User",
+            "url": "http://localhost:3000/proyecto_adopcion/v1/user/67ab51abd471a77ee4ed2ba4",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2025-02-11T13:54:15.846Z",
+            "modified": "2025-02-11T13:55:18.782Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FiNTE0Y2Q0NzFhNzdlZTRlZDJiYTAiLCJpYXQiOjE3MzkyODE2NDUsImV4cCI6MTczOTI4NTI0NX0.OaW-CcQlSbzko431a8TXm0BtzIfUo0LlKMkyhyLf1mw"
+                }
+            ]
+        }
+    ],
+    "ref": "iXMQAqFzSOXEdoOmr-ViHeUZ9BMmztKfDkVv1A44gmH-NUQkdXtu8THFXcu86WVEYl6dLDOLBC3SiBQWq_JxKg"
+}
